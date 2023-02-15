@@ -63,7 +63,9 @@ public class Main {
 
     private static void task7() throws IOException {
         List<Animal> animals = Util.getAnimals();
-        //        animals.stream() Продолжить ...
+        boolean oceania = animals.stream()
+                .anyMatch(animal -> !(animal.getOrigin().equals("Oceania")));
+        System.out.println(oceania);
     }
 
     private static void task8() throws IOException {
