@@ -83,7 +83,12 @@ public class Main {
 
     private static void task11() throws IOException {
         List<Animal> animals = Util.getAnimals();
-        //        animals.stream() Продолжить ...
+        double average = animals.stream()
+                .filter(animal -> animal.getOrigin().equals("Indonesian"))
+                .mapToInt(Animal::getAge)
+                .average()
+                .getAsDouble();
+        System.out.println(average);
     }
 
     private static void task12() throws IOException {
