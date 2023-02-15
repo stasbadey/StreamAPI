@@ -8,6 +8,7 @@ import by.badey.model.Person;
 import by.badey.util.Util;
 
 import java.io.IOException;
+import java.util.Comparator;
 import java.util.List;
 
 public class Main {
@@ -73,7 +74,12 @@ public class Main {
 
     private static void task9() throws IOException {
         List<Animal> animals = Util.getAnimals();
-        //        animals.stream() Продолжить ...
+        char[] result = animals.stream()
+                .map(Animal::getBread)
+                .map(String::toCharArray)
+                .min(Comparator.comparing(chars -> chars.length))
+                .orElse(null);
+        System.out.println(result.length);
     }
 
     private static void task10() throws IOException {
